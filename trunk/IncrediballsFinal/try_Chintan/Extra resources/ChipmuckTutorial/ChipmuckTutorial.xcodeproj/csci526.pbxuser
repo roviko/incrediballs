@@ -1,0 +1,181 @@
+// !$*UTF8*$!
+{
+	133CF69D130A02D300C6F2D1 /* ChipmuckTutorial */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ChipmuckTutorial;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	133CF6A6130A02F200C6F2D1 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	133CF6A7130A02F200C6F2D1 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	133CF71B130A14F400C6F2D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* ChipmuckTutorialAppDelegate.h */;
+		name = "ChipmuckTutorialAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 533;
+		vrLoc = 0;
+	};
+	133CF71C130A14F400C6F2D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* ChipmuckTutorialViewController.h */;
+		name = "ChipmuckTutorialViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 637;
+		vrLoc = 0;
+	};
+	133CF71D130A14F400C6F2D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* ChipmuckTutorialViewController.m */;
+		name = "ChipmuckTutorialViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 830;
+		vrLoc = 0;
+	};
+	133CF71E130A14F400C6F2D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* ChipmuckTutorialAppDelegate.m */;
+		name = "ChipmuckTutorialAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 660;
+		vrLoc = 3;
+	};
+	133CF71F130A14F400C6F2D1 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* ChipmuckTutorialAppDelegate.m */;
+		name = "ChipmuckTutorialAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 626;
+		vrLoc = 37;
+	};
+	1D3623240D0F684500981E51 /* ChipmuckTutorialAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {813, 414}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 533}";
+		};
+	};
+	1D3623250D0F684500981E51 /* ChipmuckTutorialAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {813, 442}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{37, 626}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* ChipmuckTutorial */ = {
+		activeExec = 0;
+		executables = (
+			133CF69D130A02D300C6F2D1 /* ChipmuckTutorial */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* ChipmuckTutorialViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {813, 414}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 637}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* ChipmuckTutorialViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {845, 1963}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 830}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 133CF69D130A02D300C6F2D1 /* ChipmuckTutorial */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* ChipmuckTutorial */;
+		codeSenseManager = 133CF6A7130A02F200C6F2D1 /* Code sense */;
+		executables = (
+			133CF69D130A02D300C6F2D1 /* ChipmuckTutorial */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					635,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 319423187;
+			PBXWorkspaceStateSaveDate = 319423187;
+		};
+		perUserProjectItems = {
+			133CF71B130A14F400C6F2D1 /* PBXTextBookmark */ = 133CF71B130A14F400C6F2D1 /* PBXTextBookmark */;
+			133CF71C130A14F400C6F2D1 /* PBXTextBookmark */ = 133CF71C130A14F400C6F2D1 /* PBXTextBookmark */;
+			133CF71D130A14F400C6F2D1 /* PBXTextBookmark */ = 133CF71D130A14F400C6F2D1 /* PBXTextBookmark */;
+			133CF71E130A14F400C6F2D1 /* PBXTextBookmark */ = 133CF71E130A14F400C6F2D1 /* PBXTextBookmark */;
+			133CF71F130A14F400C6F2D1 /* PBXTextBookmark */ = 133CF71F130A14F400C6F2D1 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 133CF6A6130A02F200C6F2D1 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1202, 790}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 370}";
+			sepNavWindowFrame = "{{275, -285}, {1261, 918}}";
+		};
+	};
+}
