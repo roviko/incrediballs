@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="300" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="map_tiled_3" tilewidth="32" tileheight="32">
+  <image source="map_tiled_3.png" width="96" height="96"/>
+ </tileset>
+ <layer name="bg" width="300" height="10">
+  <data encoding="base64" compression="gzip">
+   eJzt2DkOgDAMBMAEJI7/fxhKCkBBIMUJU0xtrwsXm1NKGQAAACpZdvOFNcB+QFt6/il32b7MWDKnl5sCwF+NAXYAKDFVnj8EuAHQhtIuJZpjt/OkE4rmrKN6m0fvBQB1bWogD1k=
+  </data>
+ </layer>
+ <objectgroup name="ogCollectable" width="300" height="10">
+  <object name="collectable0" x="397" y="112"/>
+ </objectgroup>
+ <objectgroup name="ogPlatform" width="300" height="10">
+  <object name="start0" x="14" y="271"/>
+  <object name="end0" x="1486" y="273"/>
+  <object name="start1" x="370" y="144"/>
+  <object name="end1" x="590" y="145"/>
+ </objectgroup>
+ <objectgroup name="ogObstacle" width="300" height="10">
+  <object name="obstacle0" x="950" y="241"/>
+ </objectgroup>
+ <objectgroup name="ogEndOfMap" width="300" height="10">
+  <object name="endMap" x="681" y="145"/>
+ </objectgroup>
+</map>
