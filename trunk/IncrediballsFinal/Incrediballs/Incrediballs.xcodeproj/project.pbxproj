@@ -577,6 +577,7 @@
 		F5FCF2D813556CE100FB2B35 /* rectWhiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FCF2D613556CE100FB2B35 /* rectWhiteButton.png */; };
 		F5FCF2D913556CE100FB2B35 /* rectGreenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FCF2D713556CE100FB2B35 /* rectGreenButton.png */; };
 		F5FCF3DD1355AAE800FB2B35 /* allUserScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FCF3DC1355AAE800FB2B35 /* allUserScene.m */; };
+		F9C26A7F1446571400230CCE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C26A7E1446571400230CCE /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1196,6 +1197,7 @@
 		F5FCF2D713556CE100FB2B35 /* rectGreenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectGreenButton.png; sourceTree = "<group>"; };
 		F5FCF3DB1355AAE800FB2B35 /* allUserScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allUserScene.h; sourceTree = "<group>"; };
 		F5FCF3DC1355AAE800FB2B35 /* allUserScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allUserScene.m; sourceTree = "<group>"; };
+		F9C26A7E1446571400230CCE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1203,6 +1205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C26A7F1446571400230CCE /* iAd.framework in Frameworks */,
 				DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */,
 				DCCBF1B90F6022AE0040855A /* Foundation.framework in Frameworks */,
 				DCCBF1BB0F6022AE0040855A /* OpenGLES.framework in Frameworks */,
@@ -1423,6 +1426,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9C26A7E1446571400230CCE /* iAd.framework */,
 				1388C4BE133EB96800369A17 /* libsqlite3.0.dylib */,
 				DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */,
 				DCCBF1B80F6022AE0040855A /* Foundation.framework */,
