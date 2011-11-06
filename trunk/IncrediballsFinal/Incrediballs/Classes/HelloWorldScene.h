@@ -9,13 +9,14 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
-#import <iAd/iAd.h>
+#import "iAdManager.h"
 
 
 // HelloWorld Layer
 @interface HelloWorld : CCLayer<ADBannerViewDelegate>
 {
-    ADBannerView *addView;
+    //ADBannerView *addView;
+    iAdManager *addView;
 }
 
 // returns a Scene that contains the HelloWorld as the only child

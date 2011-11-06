@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "iAdManager.h"
 
-@interface HighScoreScene : CCLayer {
-
+@interface HighScoreScene : CCLayer<ADBannerViewDelegate> {
+    iAdManager *addView;
 }
 
 +(id)scene;

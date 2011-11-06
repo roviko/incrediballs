@@ -60,7 +60,7 @@ CCMenuItemLabel *item4Text;
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
 		
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
+		//[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
 		
 		//add bouncing ball
 		moveDirection = -0.1;
@@ -321,56 +321,31 @@ CCMenuItemLabel *item4Text;
 
 -(void)onEnter
 {
-    NSLog(@"On Enter");
     // Call the super enter function
     [super onEnter];
     
-    addView = [[ADBannerView alloc] initWithFrame:CGRectZero];
-    addView.delegate = self;
-    addView.requiredContentSizeIdentifiers = [NSSet setWithObjects: ADBannerContentSizeIdentifierPortrait, ADBannerContentSizeIdentifierLandscape, nil];
-    addView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
+    // Initialize the iAD manager
+    addView = [[iAdManager alloc] initWithIAD];
     
-    [[[CCDirector sharedDirector] openGLView] addSubview:addView];
-    
-    // Transform iAD
-    CGSize windowSize = [[CCDirector sharedDirector] winSize];
-    
-    addView.center = CGPointMake(addView.frame.size.width/2, windowSize.height/2-145);
-    addView.hidden = YES;
+    // Add it to the view
+    [self addChild:addView];
     
 }
 
 
 -(void) onExit
 {
-    NSLog(@"On exit");
-    addView.delegate = nil;
-    [addView removeFromSuperview];
-    [addView release];
-    addView = nil;
+    // Remove the add view
+    [addView.addView removeFromSuperview];
     
+    // Release the view
+    [addView release];
+    
+    // Set the view to nil
+    addView.addView = nil;
+    
+    // Call the super method
     [super onExit];
 }
-
-
--(void) bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    NSLog(@"banner view did load ad");
-    addView.hidden = NO;
-}
-
--(void) bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    NSLog(@"banner view : did fail to receieve ad with error");
-    addView.hidden = YES;
-}
-
-
--(void) bannerViewActionDidFinish:(ADBannerView *)banner
-{
-    NSLog(@"banner view : did view action did finish");
-    [[UIApplication sharedApplication] setStatusBarStyle:(UIInterfaceOrientation)[[CCDirector sharedDirector]deviceOrientation]];
-}
-
 
 @end

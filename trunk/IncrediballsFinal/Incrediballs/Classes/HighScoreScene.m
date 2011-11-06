@@ -440,6 +440,39 @@ CCLabelTTF *userScoreText[5];
 }
 
 
+
+-(void)onEnter
+{
+    // Call the super enter function
+    [super onEnter];
+    
+    // Initialize the iAD manager
+    addView = [[iAdManager alloc] initWithIAD];
+    
+    // Add it to the view
+    [self addChild:addView];
+    
+}
+
+
+-(void) onExit
+{
+    // Remove the add view
+    [addView.addView removeFromSuperview];
+    
+    // Release the view
+    [addView release];
+    
+    // Set the view to nil
+    addView.addView = nil;
+    
+    // Call the super method
+    [super onExit];
+}
+
+
+
+
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {

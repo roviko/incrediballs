@@ -5,42 +5,50 @@
  </tileset>
  <layer name="bg" width="300" height="10">
   <data encoding="base64" compression="gzip">
-   eJzt2DkOgDAMBMAEJI7/fxhKCkBBIMUJU0xtrwsXm1NKGQAAACpZdvOFNcB+QFt6/il32b7MWDKnl5sCwF+NAXYAKDFVnj8EuAHQhtIuJZpjt/OkE4rmrKN6m0fvBQB1bWogD1k=
+   eJzt2DEKgDAQBMBoo/7/w1oohiAqaPDUKaYNSeCW5ZqUUgMAwK/1k242BLgPENvdmZGfV5JJAKu9vKyVy3IY6ljmzIwBX1X2FnnnT+Gt2gB3AN7haGcTVd4pzuyeotrqRlffo28BwLNGPDEPfA==
   </data>
  </layer>
  <objectgroup name="ogCollectable" width="300" height="10">
-  <object name="collectable0" x="463" y="112"/>
-  <object name="collectable1" x="270" y="241"/>
-  <object name="collectable2" x="431" y="241"/>
-  <object name="collectable3" x="748" y="241"/>
-  <object name="collectable4" x="844" y="241"/>
+  <object name="collectable0" x="368" y="144"/>
+  <object name="collectable1" x="401" y="240"/>
+  <object name="collectable2" x="496" y="80"/>
+  <object name="collectable3" x="813" y="242"/>
+  <object name="collectable4" x="1106" y="244"/>
   <object name="collectable5" x="1197" y="81"/>
-  <object name="collectable6" x="1709" y="242"/>
+  <object name="collectable6" x="1519" y="52"/>
   <object name="collectable7" x="1870" y="241"/>
-  <object name="collectable8" x="1996" y="241"/>
-  <object name="collectable9" x="2189" y="112"/>
+  <object name="collectable8" x="2224" y="112"/>
+  <object name="collectable9" x="2381" y="115"/>
   <object name="collectable10" x="2254" y="242"/>
-  <object name="collectable11" x="2446" y="242"/>
-  <object name="collectable12" x="2605" y="242"/>
-  <object name="collectable13" x="2734" y="241"/>
-  <object name="collectable14" x="3021" y="112"/>
-  <object name="collectable15" x="3212" y="112"/>
+  <object name="collectable11" x="2670" y="241"/>
+  <object name="collectable12" x="2988" y="243"/>
+  <object name="collectable13" x="3023" y="116"/>
+  <object name="collectable14" x="3539" y="241"/>
+  <object name="collectable15" x="3569" y="176"/>
  </objectgroup>
  <objectgroup name="ogPlatform" width="300" height="10">
   <object name="start0" x="14" y="271"/>
   <object name="end0" x="1486" y="273"/>
-  <object name="start1" x="370" y="144"/>
-  <object name="end1" x="590" y="145"/>
-  <object name="start2" x="1105" y="112"/>
-  <object name="end2" x="1325" y="112"/>
-  <object name="start3" x="1585" y="272"/>
-  <object name="end3" x="3086" y="273"/>
-  <object name="start4" x="2129" y="144"/>
-  <object name="end4" x="2414" y="144"/>
-  <object name="start5" x="2961" y="144"/>
-  <object name="end5" x="3309" y="144"/>
-  <object name="start6" x="3250" y="272"/>
-  <object name="end6" x="3758" y="272"/>
+  <object name="start1" x="335" y="175"/>
+  <object name="end1" x="403" y="176"/>
+  <object name="start2" x="463" y="111"/>
+  <object name="end2" x="559" y="111"/>
+  <object name="start3" x="784" y="207"/>
+  <object name="end3" x="912" y="208"/>
+  <object name="start4" x="1105" y="111"/>
+  <object name="end4" x="1328" y="113"/>
+  <object name="start5" x="1457" y="80"/>
+  <object name="end5" x="1551" y="83"/>
+  <object name="start6" x="1585" y="272"/>
+  <object name="end6" x="3086" y="273"/>
+  <object name="start7" x="2129" y="144"/>
+  <object name="end7" x="2416" y="144"/>
+  <object name="start8" x="2961" y="144"/>
+  <object name="end8" x="3055" y="145"/>
+  <object name="start9" x="3250" y="272"/>
+  <object name="end9" x="3758" y="272"/>
+  <object name="start10" x="3505" y="212"/>
+  <object name="end10" x="3633" y="210"/>
  </objectgroup>
  <objectgroup name="ogObstacle" width="300" height="10">
   <object name="obstacle0" x="950" y="241"/>
@@ -49,6 +57,6 @@
   <object name="power0" x="0" y="3"/>
  </objectgroup>
  <objectgroup name="ogEndOfMap" width="300" height="10">
-  <object name="endMap" x="4080" y="145"/>
+  <object name="endMap" x="4080" y="144"/>
  </objectgroup>
 </map>

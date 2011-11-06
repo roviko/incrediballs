@@ -56,7 +56,7 @@ BOOL isTopBarOpen;
 		CGSize wins = [[CCDirector sharedDirector] winSize];
 		
 		
-		isTopBarOpen = TRUE;
+		isTopBarOpen = YES;
 		
 		topBar = [CCSprite spriteWithFile:@"HUDTopBar.png"];
 		topBar.position = ccp(wins.width/2, wins.height - topBar.contentSize.height/2);
@@ -114,6 +114,8 @@ BOOL isTopBarOpen;
 		[self showBallsLeft];
 		[self schedule:@selector(getParent) interval:0.1];
 		[self schedule:@selector(animateButton:)];
+        
+        [self SlideToolBar];
 		
 	}
 	return self;
@@ -150,15 +152,14 @@ BOOL isTopBarOpen;
 		[topBar runAction:[CCMoveTo actionWithDuration:1 position:ccp(240  + 480 - 50,topBar.position.y)]];
 		[muteSprite runAction:[CCMoveTo actionWithDuration:1 position:ccp(240 + 215 + 480 - 50,muteSprite.position.y)]];
 		[muteButton runAction:[CCMoveTo actionWithDuration:1 position:ccp(215 + 480 - 50,muteButton.position.y)]];
-		isTopBarOpen = FALSE;
 	}
 	else {
 		[HUDcontrol setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HUDTopBarCloseArrow.png"]];
 		[topBar runAction:[CCMoveTo actionWithDuration:1 position:ccp(240,topBar.position.y)]];
 		[muteSprite runAction:[CCMoveTo actionWithDuration:1 position:ccp(240 + 215,muteSprite.position.y)]];
 		[muteButton runAction:[CCMoveTo actionWithDuration:1 position:ccp(215,muteButton.position.y)]];
-		isTopBarOpen = TRUE;
 	}
+    isTopBarOpen = !isTopBarOpen;
 
 }
 
