@@ -237,10 +237,6 @@ BOOL isTopBarOpen;
 
 
 -(void) addCollectedPowerButton:(int)pID{
-	
-	
-	//NSLog(@"aldmas;ljd;asjdjasdkjaslkdjkljlkkhhhhhhkjhjkhg hhhghg working!!!");
-	
 	//increment power sprite count
 	powerSpriteCount++;
 	
@@ -251,9 +247,6 @@ BOOL isTopBarOpen;
 	
 	gPowerButton3.position = ccp(menuP.x-60*powerSpriteCount,menuP.y);
 	gPowerButton3.scale = 1.5f;
-	
-	//NSLog(@"8957834758klkldhfgkljd98w95ijlk89yiosdfh8rmnsfh %d %d", gPowerButton3.position.x,gPowerButton3.position.y);
-	
 	
 	powerArray[powerSpriteCount]=[CCSprite spriteWithFile:[NSString stringWithFormat:@"power%d.png",pID]];
 	powerArray[powerSpriteCount].position=ccp(spriteP.x-60*powerSpriteCount,spriteP.y);
@@ -272,16 +265,17 @@ BOOL isTopBarOpen;
 }
 
 -(void) powerUsed1 {
-	NSLog(@"^^^@@@@!!!!!!!!!!!!!!!!!!!!!!power function working");
+    // First power clicked
 	[curLevel powerUsed];
 }
 
 -(void) powerUsed2 {
+    // Second power clicked
 	[curLevel powerUsed2];
 }
 
 -(void) powerUsed3 {
-
+    // Third power clicked
 	[curLevel powerUsed3];
 }
 
