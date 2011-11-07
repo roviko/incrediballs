@@ -447,7 +447,7 @@ CCLabelTTF *userScoreText[5];
     [super onEnter];
     
     // Initialize the iAD manager
-    addView = [[iAdManager alloc] initWithIAD];
+    addView = [[iAdManager alloc] initWithIAD:isAppBougth];
     
     // Add it to the view
     [self addChild:addView];

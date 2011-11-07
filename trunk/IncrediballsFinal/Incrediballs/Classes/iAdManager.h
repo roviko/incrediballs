@@ -12,11 +12,14 @@
 
 @interface iAdManager : CCLayer<ADBannerViewDelegate> {
     ADBannerView *addView;
+    BOOL viewIsEnabled;
 }
 
+//
 @property (nonatomic, retain) ADBannerView *addView;
+@property (nonatomic) BOOL viewIsEnabled;
 
-
--(id) initWithIAD;
+// Function declarations
+-(id) initWithIAD: (BOOL)isEnabled;
 
 @end

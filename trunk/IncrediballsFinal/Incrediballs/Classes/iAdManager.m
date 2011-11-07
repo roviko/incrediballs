@@ -12,6 +12,7 @@
 @implementation iAdManager
 
 @synthesize addView;
+@synthesize viewIsEnabled;
 
 +(id) scene
 {
@@ -30,10 +31,11 @@
 
 
 
--(id) initWithIAD
+-(id) initWithIAD: (BOOL)isEnabled
 {
 	if( (self=[super init])) {
         NSLog(@"Init add");
+        viewIsEnabled = isEnabled;
     }
 	
 	return self;
@@ -50,7 +52,10 @@
     addView.requiredContentSizeIdentifiers = [NSSet setWithObjects: ADBannerContentSizeIdentifierPortrait, ADBannerContentSizeIdentifierLandscape, nil];
     addView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
     
-    [[[CCDirector sharedDirector] openGLView] addSubview:addView];
+    self.addView.alpha = 0.5;
+    
+    if(!viewIsEnabled)
+        [[[CCDirector sharedDirector] openGLView] addSubview:addView];
     
     // Transform iAD
     CGSize windowSize = [[CCDirector sharedDirector] winSize];

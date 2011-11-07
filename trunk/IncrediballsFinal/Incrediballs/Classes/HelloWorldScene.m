@@ -16,6 +16,7 @@
 #import "OptionScene.h"
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
+#import "Globals.h"
 
 CCSprite *preLoader;
 CCSprite *cpLogo;
@@ -57,6 +58,12 @@ CCMenuItemLabel *item4Text;
 {
 	if( (self=[super init])) {
 		
+        
+        // Set the global variable isAppBought
+        // Write the additional code to get this value from the server and then its value
+        // For now we just write NO
+        isAppBougth = YES;
+        
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
 		
@@ -326,7 +333,7 @@ CCMenuItemLabel *item4Text;
     [super onEnter];
     
     // Initialize the iAD manager
-    addView = [[iAdManager alloc] initWithIAD];
+    addView = [[iAdManager alloc] initWithIAD:isAppBougth];
     
     // Add it to the view
     [self addChild:addView];

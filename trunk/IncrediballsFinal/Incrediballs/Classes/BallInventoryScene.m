@@ -17,7 +17,7 @@
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
 #import "Power.h"
-
+#import "Globals.h"
 
 BallSelector *ballButton[8];
 float arrBallPosition[8][3]; //stores three values 0: x , 1 : y and 2: scale
@@ -174,7 +174,7 @@ int userSelectionStatus; // 0 for play game, 1 for new ball bought and 2 for bal
     [super onEnter];
     
     // Initialize the iAD manager
-    addView = [[iAdManager alloc] initWithIAD];
+    addView = [[iAdManager alloc] initWithIAD:isAppBougth];
     
     // Add it to the view
     [self addChild:addView];

@@ -19,6 +19,7 @@
 #import "ArrowMenu.h"
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
+#import "Globals.h"
 
 const int animationDuration = 1;
 const float arrowAnimationDuration = 0.1f;
@@ -67,7 +68,7 @@ CCMenu *arrowMenu;
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init] )) {
-		
+        
 		if (playGeneralSound) {
 			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
 		}

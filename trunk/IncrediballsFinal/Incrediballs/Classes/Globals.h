@@ -55,12 +55,6 @@ DatabaseManager* gDbManager;
 // Variable related to tutorials
 bool gIsTutorialSelected;
 int gTutNumber;
+BOOL isAppBougth;
 
 bool playGeneralSound;
-
-@interface Globals : CCLayer {
-
-}
-
-@end
-
