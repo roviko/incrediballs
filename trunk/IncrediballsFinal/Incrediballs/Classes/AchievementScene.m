@@ -218,7 +218,8 @@ BOOL scoreImproved;
 
 -(void) backButtonTouched
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:1 scene:[game_map node]]];
+    // To keep all the animation constant
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1 scene:[game_map node]]];
 }
 
 -(void) animateProgress

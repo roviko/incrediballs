@@ -33,12 +33,12 @@
 		[self createEditableCopyOfDatabaseIfNeeded];
 		
 		
-		NSLog(@"DB Path :: %@", dbPath);
+		//NSLog(@"DB Path :: %@", dbPath);
 		
 		db = [FMDatabase databaseWithPath:dbPath];
 		[db setLogsErrors:YES];
 		
-		NSLog(@"Inside database Manager init");
+		//NSLog(@"Inside database Manager init");
 		
 		if(![db open])
 		{
@@ -193,7 +193,7 @@
 		w.iteration = [rs doubleForColumn:@"ITERATION"];
 		w.minItemsToCollect = [rs intForColumn:@"MIN_ITEM"];
 		
-		NSLog(@"Min score : %d", w.minScore);
+		NSLog(@"Min score : %f", w.minScore);
 		
 		[levels setObject:w forKey:[NSNumber numberWithInt:w.worldId]];
 		
