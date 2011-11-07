@@ -45,6 +45,7 @@ CGPoint prevTouchLocation;
 int iZoomOffsetX = 250;
 CCSprite *spotlight;
 BOOL shootStarted;
+BOOL isTracerPowerUsed = NO;
 
 
 enum {
@@ -205,23 +206,56 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 
 		
 	}
-	[powerArray[0] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat: @"power%d.png",gBallPower1]]];
-	[powerArray[1] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat: @"power%d.png",gBallPower2]]];
+    
+    
+	// initialize power used array
+	for (int i=0; i<3; i++) {
+		powerUsedArray[i]=FALSE;
+	}
+    
+	
+    
+    // Disable the power if it is a tracer power for the first index only if it used, else enable it once again
+    if (gBallPower1 == POWER_TRACER && isTracerPowerUsed) 
+    {
+        [powerArray[0] setTexture:[[CCTextureCache sharedTextureCache] addImage:@"power4_disabled_1.png"]];
+        powerUsedCount[0] = 3;
+        powerUsedArray[0] = TRUE;
+    }
+    else
+    {
+       	[powerArray[0] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat: @"power%d.png",gBallPower1]]];
+    }
+
+    // Disable the power if it is a tracer power for the second index only if it used, else enable it once again
+    if(gBallPower2 == POWER_TRACER && isTracerPowerUsed)
+    {
+        [powerArray[1] setTexture:[[CCTextureCache sharedTextureCache] addImage:@"power4_disabled_1.png"]];
+        powerUsedCount[1] = 3;
+        powerUsedArray[1] = TRUE;
+    }
+    else
+    {
+        [powerArray[1] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat: @"power%d.png",gBallPower2]]];
+    }
 	
 	if(targetHit[0] == TRUE)
 	{
-		[powerArray[2] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"power%d.png",gBallPower3]]];
+        if(gBallPower3 == POWER_TRACER && isTracerPowerUsed)
+        {
+            [powerArray[2] setTexture:[[CCTextureCache sharedTextureCache] addImage:@"power4_disabled_1.png"]];
+            powerUsedCount[2] = 3;
+            powerUsedArray[2] = TRUE;
+        }
+        else
+        {
+            [powerArray[2] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"power%d.png",gBallPower3]]];
+        }
 	}
 	
 	//Adjust camera to default view
 	[self.camera setCenterX:0 centerY:0 centerZ:0];
 	[self.camera setEyeX:0 eyeY:0 eyeZ:1];
-	
-	// initialize power used array
-	for (int i=0; i<3; i++) {
-		powerUsedArray[i]=FALSE;
-	}
-
 	
 	//NSLog(@"Works!!!");
 	
@@ -338,13 +372,12 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	
 	//spotlight scale update
 	spotlight.scaleY=(bodyPos.y+64)/100;
-	
 	// handling all powers
 	if (ballFired == TRUE) {
 		if (powerIndex == 1 && powerUsedArray[0] == FALSE) {
-			
-			if (powerUsedCount[0]<3) {
-				
+			NSLog(@"===============\nShould not come here second time\n================");
+            if (powerUsedCount[0]<3) {
+				NSLog(@"The power used is : %d", gBallPower1);
 				
 				Power *p1=[[Power alloc] init];
 				int oneup=[p1 executePower:body powerID:gBallPower1];
@@ -354,6 +387,11 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 				powerUsedArray[0] = TRUE;
 				[self schedule:@selector(animatePowerButton1)];
 				powerUsedCount[0]++;
+                if(gBallPower1 == POWER_TRACER)
+                {
+                    powerUsedCount[0] = 3;
+                    isTracerPowerUsed = YES;
+                }
 				
 			}
 			else {
@@ -365,7 +403,7 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 			
 			
 			
-			if (powerUsedCount[1]<3) {
+			if (powerUsedCount[1]<3 ) {
 				Power *p2=[[Power alloc] init];
 				int oneup=[p2 executePower:body powerID:gBallPower2];
 				ballCount+=oneup;
@@ -374,6 +412,11 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 				powerUsedArray[1] = TRUE;
 				[self schedule:@selector(animatePowerButton2)];
 				powerUsedCount[1]++;
+                if(gBallPower2 == POWER_TRACER)
+                {
+                    powerUsedCount[1] = 3;
+                    isTracerPowerUsed = YES;
+                }
 			}
 			else {
 				[powerArray[1] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"power%d_disabled_1.png",gBallPower2]]];
@@ -393,6 +436,11 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 				powerUsedArray[2] = TRUE;
 				[self schedule:@selector(animatePowerButton3)];
 				powerUsedCount[2]++;
+                if(gBallPower3 == POWER_TRACER)
+                {
+                    powerUsedCount[2] = 3;
+                    isTracerPowerUsed = YES;
+                }
 			}
 			else {
 				[powerArray[2] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"power%d_disabled_1.png",gBallPower3]]];
@@ -1170,7 +1218,6 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 -(void) powerUsed3 {
 	
 	if (ballFired == TRUE) {
-		NSLog(@"alksdhashdjashdashdjasdhhhh sdhasdjasdhh h asdhjsd h power3 used");
 		powerIndex = 3;
 	}
 	else

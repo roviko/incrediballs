@@ -10,6 +10,13 @@
 #import "cocos2d.h"
 #import "DatabaseManager.h"
 
+#define POWER_REVERSE 1
+#define POWER_LEVITATE 2
+#define POWER_BOOST 3
+#define POWER_WALK_THROUGH 4
+#define POWER_SHADOW 5
+#define POWER_TRACER 6
+
 // Global Distance label
 CCLabelTTF *gLabelDistance;
 CCLabelTTF *gLabelScore;
