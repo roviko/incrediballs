@@ -69,6 +69,7 @@
 		13DB049A1319E4BC0066938F /* new_cannon12.png in Resources */ = {isa = PBXBuildFile; fileRef = 13DB048E1319E4BC0066938F /* new_cannon12.png */; };
 		13F651F5131B92D50067BFB5 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F651F4131B92D50067BFB5 /* Globals.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		3F32BF311467945300CBA087 /* power6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F32BF301467945300CBA087 /* power6.png */; };
 		3FAF780A146631A10010CC49 /* iAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF7809146631A10010CC49 /* iAdManager.m */; };
 		504DFC4810AF1557006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC4210AF1557006D82FE /* CLScoreServerPost.h */; };
 		504DFC4910AF1557006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFC4310AF1557006D82FE /* CLScoreServerPost.m */; };
@@ -666,6 +667,7 @@
 		1F3B9A2C0EF2145700286867 /* IncrediballsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncrediballsAppDelegate.h; path = Classes/IncrediballsAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1F3B9A820EF2151B00286867 /* Incrediballs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incrediballs_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F32BF301467945300CBA087 /* power6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power6.png; sourceTree = "<group>"; };
 		3FAF7808146631A10010CC49 /* iAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdManager.h; sourceTree = "<group>"; };
 		3FAF7809146631A10010CC49 /* iAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdManager.m; sourceTree = "<group>"; };
 		504DFC4210AF1557006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
@@ -2208,6 +2210,7 @@
 				F577B7AF1339B92700EE9C32 /* power2_disabled_4.png */,
 				F577B7B01339B92700EE9C32 /* power2_disabled_5.png */,
 				F577B7B11339B92700EE9C32 /* power2_disabled_6.png */,
+				3F32BF301467945300CBA087 /* power6.png */,
 				130F4BF21314F53500E11185 /* power5.png */,
 				130F4BF31314F53500E11185 /* power3.png */,
 				130F4BF41314F53500E11185 /* power4.png */,
@@ -2975,6 +2978,7 @@
 				F5E4F5C213717DED00B7C78D /* Jump.mp3 in Resources */,
 				F5E4F5C313717DED00B7C78D /* Reverse.mp3 in Resources */,
 				F5E4F5C413717DED00B7C78D /* backGround.mp3 in Resources */,
+				3F32BF311467945300CBA087 /* power6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

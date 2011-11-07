@@ -13,6 +13,9 @@
 #import "LevelBuilder.h"
 #import "SoundLayer.h"
 
+// A variable used to increase the number of balls fired.
+#define TOTAL_NUMBER_OF_BALLS 2
+
 enum {
 	
 	
@@ -73,7 +76,10 @@ BOOL isTopBarOpen;
 		CCMenuItemImage *pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
 		pauseButton.position = ccp(wins.width/2 - pauseButton.contentSize.width/2 - 50,-wins.height/2 + controlTopBar.contentSize.height/2);
 		
-		CCMenu *controlMenu = [CCMenu menuWithItems:controlTopBar,pauseButton,nil];
+        CCMenuItemImage *actualPauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
+		actualPauseButton.position = ccp(wins.width/2 - pauseButton.contentSize.width/2 - 100,-wins.height/2 + controlTopBar.contentSize.height/2);
+        
+		CCMenu *controlMenu = [CCMenu menuWithItems:controlTopBar,pauseButton, actualPauseButton, nil];
 		
 		[topBar addChild:controlMenu];
 		
@@ -324,9 +330,11 @@ BOOL isTopBarOpen;
 {
 	NSString *ballSprite = [NSString stringWithFormat:@"ball_%d.png",gBallID];
 	ballLeftItem = [[NSMutableArray alloc] init];
-	CCMenuItemImage *ballItem[2];
+    
+    // To increase the number of balls to fired
+	CCMenuItemImage *ballItem[TOTAL_NUMBER_OF_BALLS];
 	
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < TOTAL_NUMBER_OF_BALLS; i++) {
 		
 		ballItem[i] = [CCMenuItemImage itemFromNormalImage:ballSprite 
 												 selectedImage:ballSprite

@@ -341,7 +341,6 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	
 	// handling all powers
 	if (ballFired == TRUE) {
-		//NSLog(@"***************!!!!!!!!!!22@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ powerUsedArray0 : %d",powerUsedArray[0]);
 		if (powerIndex == 1 && powerUsedArray[0] == FALSE) {
 			
 			if (powerUsedCount[0]<3) {
@@ -356,17 +355,6 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 				[self schedule:@selector(animatePowerButton1)];
 				powerUsedCount[0]++;
 				
-				
-				if(TRUE)
-				{
-					//[spotlight setTexture:[[CCTextureCache sharedTextureCache] addImage:@"spotlight2.png"]];
-					//spotlight.scaleY=5.0f;
-					
-					//spotlight.opacity=0.4;
-					//spotlight.scale=5.0;
-				}
-				
-			
 			}
 			else {
 				[powerArray[0] setTexture:[[CCTextureCache sharedTextureCache] addImage:[NSString stringWithFormat:@"power%d_disabled_1.png",gBallPower1]]];

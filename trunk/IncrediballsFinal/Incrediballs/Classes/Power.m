@@ -52,9 +52,13 @@ int powerWtCount=0;
 			collPowerFlag = 0;
 			break;
 		case 5:
+            // Set the collision flag to one
+            // By doing this the level builder check this flag in the callEveryFrame method and the pick
+            // all the collectables from the platfroms
 			shadPowerFlag=1;
 			break;
 		case 6:
+            // Trace the path
 			return -1;
 			break;
 		default:
