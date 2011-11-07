@@ -7,7 +7,7 @@
 //
 
 #import "MultipleLayer.h"
-
+#import "HelloWorldScene.h"
 
 
 MultipleLayer* multiLayerSceneInstance;
@@ -88,4 +88,11 @@ if ((self = [super init])) {
 	// don't forget to call "super dealloc" 
 	[super dealloc];
 }
+
+-(void) goToMainScreen
+{
+    NSLog(@"Multi layer go to main screen called!");
+     [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1  scene:[HelloWorld node]]];
+}
+
 @end

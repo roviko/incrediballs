@@ -24,5 +24,6 @@
 -(HUD*) getHUDLayer;
 -(SoundLayer*) getSoundLayer;
 -(void) addStaticBackground;
+-(void) goToMainScreen;
 
 @end

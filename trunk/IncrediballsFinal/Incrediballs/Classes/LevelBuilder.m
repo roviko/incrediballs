@@ -375,7 +375,6 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	// handling all powers
 	if (ballFired == TRUE) {
 		if (powerIndex == 1 && powerUsedArray[0] == FALSE) {
-			NSLog(@"===============\nShould not come here second time\n================");
             if (powerUsedCount[0]<3) {
 				NSLog(@"The power used is : %d", gBallPower1);
 				

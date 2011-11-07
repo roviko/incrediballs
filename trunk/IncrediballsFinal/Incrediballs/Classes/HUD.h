@@ -45,5 +45,9 @@
 -(void) startNextTurn;
 -(void) displayTouchImage: (CGPoint) position;
 -(void) addCollectedPowerButton:(int)pID;
+-(void) pauseLevel : (id) sender;
+-(void)resumeGame : (id) sender;
+-(void)goToMainMenu;
+
 
 @end

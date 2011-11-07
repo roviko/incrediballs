@@ -12,6 +12,8 @@
 #import "Globals.h"
 #import "LevelBuilder.h"
 #import "SoundLayer.h"
+#import "SimpleAudioEngine.h"
+#import "HelloWorldScene.h"
 
 // A variable used to increase the number of balls fired.
 #define TOTAL_NUMBER_OF_BALLS 2
@@ -39,6 +41,16 @@ CGPoint menuP;
 CGPoint spriteP;
 int powerSpriteCount;
 BOOL isTopBarOpen;
+CCLayerColor *pauseLayer;
+CCMenu *pauseMenu;
+BOOL isScreenPaused = NO;
+CCMenuItemImage *resume;
+CCMenuItemImage *mainMenu;
+CCMenuItemImage *controlTopBar;
+CCMenuItemImage *pauseButton;
+CCMenuItemImage *actualPauseButton;
+CCMenuItemImage *muteButton;
+CCMenuItemImage *ballItem[TOTAL_NUMBER_OF_BALLS];
 
 - (id) init
 {
@@ -66,17 +78,17 @@ BOOL isTopBarOpen;
 		//TopBar.color = ccc3(153, 0, 0);
 		[self addChild:topBar];
 		
-		CCMenuItemImage *controlTopBar = [CCMenuItemImage itemFromNormalImage:@"HUDTopBarClose.png" selectedImage:@"HUDTopBarClose.png" target:self selector:@selector(SlideToolBar)];
+		controlTopBar = [CCMenuItemImage itemFromNormalImage:@"HUDTopBarClose.png" selectedImage:@"HUDTopBarClose.png" target:self selector:@selector(SlideToolBar)];
 		controlTopBar.position = ccp(-wins.width/2 + controlTopBar.contentSize.width/2,-wins.height/2 + controlTopBar.contentSize.height/2);
 		
 		HUDcontrol = [CCSprite spriteWithFile:@"HUDTopBarCloseArrow.png"];
 		HUDcontrol.position = ccp(controlTopBar.contentSize.width/2,controlTopBar.contentSize.height/2);
 		[controlTopBar addChild:HUDcontrol];
 		
-		CCMenuItemImage *pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
+		pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
 		pauseButton.position = ccp(wins.width/2 - pauseButton.contentSize.width/2 - 50,-wins.height/2 + controlTopBar.contentSize.height/2);
 		
-        CCMenuItemImage *actualPauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
+        actualPauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(pauseLevel:)];
 		actualPauseButton.position = ccp(wins.width/2 - pauseButton.contentSize.width/2 - 100,-wins.height/2 + controlTopBar.contentSize.height/2);
         
 		CCMenu *controlMenu = [CCMenu menuWithItems:controlTopBar,pauseButton, actualPauseButton, nil];
@@ -149,7 +161,7 @@ BOOL isTopBarOpen;
 	SoundLayer *soundLayer = [parent getSoundLayer];
 	
 	CCSprite *muteSprite = [soundLayer muteImage];
-	CCMenuItemImage *muteButton = [soundLayer muteButton];
+	muteButton = [soundLayer muteButton];
 	
 	if (isTopBarOpen) {
 		[HUDcontrol setTexture:[[CCTextureCache sharedTextureCache] addImage:@"HUDTopBarOpenArrow.png"]];
@@ -184,6 +196,86 @@ BOOL isTopBarOpen;
 -(void) restartLevel
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:0 scene:[MultipleLayer node]]];
+}
+
+-(void) pauseLevel : (id) sender
+{
+    [controlTopBar setIsEnabled:NO];
+    [pauseButton setIsEnabled:NO];
+    [actualPauseButton setIsEnabled:NO];
+    
+    [gPowerButton1 setIsEnabled:NO];
+    [gPowerButton2 setIsEnabled:NO];
+    [gPowerButton3 setIsEnabled:NO];
+    
+    [shootButton setIsEnabled:NO];
+    [muteButton setIsEnabled:NO];
+    
+    for (int i = 0; i < TOTAL_NUMBER_OF_BALLS; i++) {
+		[ballItem[i] setIsEnabled:NO];
+    }
+    
+    // Stop sound and the scene
+    isScreenPaused = YES;
+    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+    [[CCDirector sharedDirector] pause];
+    
+    // Create a pause layer
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    pauseLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 255, 125) width: 300 height: 150];
+    pauseLayer.position = ccp(s.width/2, s.height/2);
+    pauseLayer.isRelativeAnchorPoint = YES;
+    [self addChild: pauseLayer z:20];
+    
+    resume = [CCMenuItemImage itemFromNormalImage:@"power2.png" selectedImage:@"rpower2.png" target:self selector:@selector(resumeGame:)];
+    mainMenu = [CCMenuItemImage itemFromNormalImage:@"power1.png" selectedImage:@"power1.png" target:self selector:@selector(goToMainMenu)];
+    
+    pauseMenu = [CCMenu menuWithItems:resume, mainMenu, nil];
+    [pauseMenu alignItemsHorizontally];
+    [self addChild:pauseMenu z:21];
+
+
+
+    
+}
+
+-(void)resumeGame : (id) sender
+{
+    isScreenPaused = NO;
+    
+    // Re-enable the touches
+    [controlTopBar setIsEnabled:YES];
+    [pauseButton setIsEnabled:YES];
+    [actualPauseButton setIsEnabled:YES];
+    
+    [gPowerButton1 setIsEnabled:YES];
+    [gPowerButton2 setIsEnabled:YES];
+    [gPowerButton3 setIsEnabled:YES];
+    
+    [muteButton setIsEnabled:YES];
+    [shootButton setIsEnabled:YES];
+    
+    for (int i = 0; i < TOTAL_NUMBER_OF_BALLS; i++) {
+		[ballItem[i] setIsEnabled:YES];
+    }
+    
+    // remove the pause menu screen
+    [self removeChild:pauseMenu cleanup:YES];
+    [self removeChild:pauseLayer cleanup:YES];
+
+    // Resume the director and the audio engine
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [[CCDirector sharedDirector] resume];
+
+}
+
+-(void)goToMainMenu
+{
+//    [self removeChild:pauseMenu cleanup:YES];
+//    [self removeChild:pauseLayer cleanup:YES];
+//    
+    [[CCDirector sharedDirector] resume];
+    [parent goToMainScreen];
 }
 
 -(void) addPowerButton {
@@ -332,7 +424,6 @@ BOOL isTopBarOpen;
 	ballLeftItem = [[NSMutableArray alloc] init];
     
     // To increase the number of balls to fired
-	CCMenuItemImage *ballItem[TOTAL_NUMBER_OF_BALLS];
 	
 	for (int i = 0; i < TOTAL_NUMBER_OF_BALLS; i++) {
 		
@@ -364,21 +455,42 @@ BOOL isTopBarOpen;
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-	
-	CGPoint touchLocation = [touch locationInView: [touch view]];
-	touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-	
-	[self displayTouchImage: touchLocation];
-	
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+	if(isScreenPaused)
+    {
+        // disable the touches
+        [controlTopBar setIsEnabled:NO];
+        [pauseButton setIsEnabled:NO];
+        [actualPauseButton setIsEnabled:NO];
+        
+        [gPowerButton1 setIsEnabled:NO];
+        [gPowerButton2 setIsEnabled:NO];
+        [gPowerButton3 setIsEnabled:NO];
+        
+        [shootButton setIsEnabled:NO];
+        
+        [muteButton setIsEnabled:NO];
+    }
+    else
+    {
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+        
+        [self displayTouchImage: touchLocation];
+        
+	}
 	return YES;
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-	
-	CGPoint touchLocation = [touch locationInView: [touch view]];
-	touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
 
-	[self displayTouchImage:touchLocation];
+
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+	if(!isScreenPaused)
+    {
+        CGPoint touchLocation = [touch locationInView: [touch view]];
+        touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
+
+        [self displayTouchImage:touchLocation];
+    }
 }
 
 -(void) displayTouchImage: (CGPoint) position
