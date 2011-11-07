@@ -56,7 +56,7 @@ BOOL isTopBarOpen;
 		CGSize wins = [[CCDirector sharedDirector] winSize];
 		
 		
-		isTopBarOpen = YES;
+		isTopBarOpen = NO;
 		
 		topBar = [CCSprite spriteWithFile:@"HUDTopBar.png"];
 		topBar.position = ccp(wins.width/2, wins.height - topBar.contentSize.height/2);
@@ -114,8 +114,6 @@ BOOL isTopBarOpen;
 		[self showBallsLeft];
 		[self schedule:@selector(getParent) interval:0.1];
 		[self schedule:@selector(animateButton:)];
-        
-        [self SlideToolBar];
 		
 	}
 	return self;

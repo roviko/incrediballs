@@ -60,6 +60,7 @@ CCMenuItemLabel *item4Text;
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
 		
+        // Rohit K : Disable the sound for now! For testing purpose only
 		//[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
 		
 		//add bouncing ball

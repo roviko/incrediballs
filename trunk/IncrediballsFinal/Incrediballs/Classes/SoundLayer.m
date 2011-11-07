@@ -40,10 +40,10 @@ BOOL isMute = FALSE; // TRUE for mute and FALSE for unmute
 		}
 
 		
-		muteButton.position = ccp(215 + 480 - 50,135);
+		muteButton.position = ccp(215,135);
 		
 
-		muteImage.position = ccp(240 + 215 + 480 - 50, 160 + 135);
+		muteImage.position = ccp(240 + 215, 160 + 135);
         
 		CCMenu *menu = [CCMenu menuWithItems:muteButton,nil];
 		
