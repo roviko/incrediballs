@@ -523,15 +523,19 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 				levelCompleteBG.position = ccp(240,290);
 				levelCompleteBG.scaleX = 4;
 				
-				CCLabelTTF *levelCompleteText = [CCLabelTTF labelWithString:@"Level Cleared !!!" fontName:@"Marker Felt" fontSize:20];
-				levelCompleteText.position = ccp(240,290);
-				levelCompleteText.color = ccc3(0, 153, 0);
-				
+                if(hudLayer.isTopBarOpen)
+                {
+                    CCLabelTTF *levelCompleteText = [CCLabelTTF labelWithString:@"Level Cleared !!!" fontName:@"Marker Felt" fontSize:20];
+                    levelCompleteText.position = ccp(240,290);
+                    levelCompleteText.color = ccc3(0, 153, 0);
+                    
+                    [hudLayer addChild:levelCompleteText];
+                    [levelCompleteText runAction:[CCFadeOut actionWithDuration:2]];
+				}
 				[hudLayer addChild:levelCompleteBG];
-				[hudLayer addChild:levelCompleteText];
+				
 				
 				[levelCompleteBG runAction:[CCFadeOut actionWithDuration:2]];
-				[levelCompleteText runAction:[CCFadeOut actionWithDuration:2]];
 			}
 			// remove the current power from the map
 			[self removeChild:collectable[i] cleanup:FALSE];
@@ -1423,7 +1427,7 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	CGPoint distLine = ccpSub( touchLocation,checkPoint);
 	CGFloat radAngle = ccpToAngle(distLine);
 	CGFloat angle = CC_RADIANS_TO_DEGREES(radAngle);
-	
+    
 	//distance between the touch and the center of the cannon
 	float touchDist = ccpDistance(touchLocation, cannon.position);
 	
@@ -1480,7 +1484,7 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	CGPoint curMapLocation = self.position;
 	CGPoint newMapLocation;
 	
-	//NSLog(@"CUR MAP LOC: %f , moveDistance : %f",curMapLocation.x,moveDistance);
+	NSLog(@"CUR MAP LOC: %f , moveDistance : %f",(cannon.position.x), cannon.contentSize.width/2);
 	
 	if(CGRectContainsPoint(ShootingArea, touchLocation) == NO)
 	{

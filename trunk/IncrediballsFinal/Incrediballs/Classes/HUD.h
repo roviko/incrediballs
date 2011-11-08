@@ -22,6 +22,7 @@
 	CCSprite *topBar;
 	CCMenu *ballTurnMenu;
 	NSMutableArray *ballLeftItem; // 2 because total there are 3 chances and at the start 2 left
+    BOOL isTopBarOpen;;
 
 }
 
@@ -30,6 +31,7 @@
 @property (nonatomic,retain) CCSprite *topBar;
 @property (nonatomic, retain) CCMenu *ballTurnMenu;
 @property (nonatomic, retain) NSMutableArray *ballLeftItem;
+@property (nonatomic, readwrite) BOOL isTopBarOpen;
 //@property (nonatomic,retain) CCBitmapFontAtlas * bombs;
 //@property (nonatomic,retain) NSMutableArray * lives;
 

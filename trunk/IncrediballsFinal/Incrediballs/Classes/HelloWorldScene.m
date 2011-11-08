@@ -62,13 +62,13 @@ CCMenuItemLabel *item4Text;
         // Set the global variable isAppBought
         // Write the additional code to get this value from the server and then its value
         // For now we just write NO
-        isAppBougth = YES;
+        isAppBougth = NO;
         
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
 		
         // Rohit K : Disable the sound for now! For testing purpose only
-		//[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"mainTheme.wav"];
 		
 		//add bouncing ball
 		moveDirection = -0.1;

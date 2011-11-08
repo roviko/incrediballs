@@ -404,6 +404,9 @@
 		F577BAB2133B2C2E00EE9C32 /* ball_6.png in Resources */ = {isa = PBXBuildFile; fileRef = F577BAAA133B2C2E00EE9C32 /* ball_6.png */; };
 		F577BAB3133B2C2E00EE9C32 /* ball_7.png in Resources */ = {isa = PBXBuildFile; fileRef = F577BAAB133B2C2E00EE9C32 /* ball_7.png */; };
 		F577BAB4133B2C2E00EE9C32 /* ball_8.png in Resources */ = {isa = PBXBuildFile; fileRef = F577BAAC133B2C2E00EE9C32 /* ball_8.png */; };
+		F57E1E3214694D25004C4259 /* pause_menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F57E1E2F14694D25004C4259 /* pause_menu_button.png */; };
+		F57E1E3314694D25004C4259 /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = F57E1E3014694D25004C4259 /* replay.png */; };
+		F57E1E3414694D25004C4259 /* resume_menu_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F57E1E3114694D25004C4259 /* resume_menu_button.png */; };
 		F5B3997413658AF700DDDEE1 /* tutScreenShot12.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B3996813658AF700DDDEE1 /* tutScreenShot12.png */; };
 		F5B3997513658AF700DDDEE1 /* tutScreenShot11.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B3996913658AF700DDDEE1 /* tutScreenShot11.png */; };
 		F5B3997613658AF700DDDEE1 /* tutScreenShot10.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B3996A13658AF700DDDEE1 /* tutScreenShot10.png */; };
@@ -1010,6 +1013,9 @@
 		F577BAAA133B2C2E00EE9C32 /* ball_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_6.png; sourceTree = "<group>"; };
 		F577BAAB133B2C2E00EE9C32 /* ball_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_7.png; sourceTree = "<group>"; };
 		F577BAAC133B2C2E00EE9C32 /* ball_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_8.png; sourceTree = "<group>"; };
+		F57E1E2F14694D25004C4259 /* pause_menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_menu_button.png; sourceTree = "<group>"; };
+		F57E1E3014694D25004C4259 /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
+		F57E1E3114694D25004C4259 /* resume_menu_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resume_menu_button.png; sourceTree = "<group>"; };
 		F5B3996813658AF700DDDEE1 /* tutScreenShot12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutScreenShot12.png; sourceTree = "<group>"; };
 		F5B3996913658AF700DDDEE1 /* tutScreenShot11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutScreenShot11.png; sourceTree = "<group>"; };
 		F5B3996A13658AF700DDDEE1 /* tutScreenShot10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutScreenShot10.png; sourceTree = "<group>"; };
@@ -2298,6 +2304,9 @@
 		F5E3B598133E9D7200F22FE3 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				F57E1E2F14694D25004C4259 /* pause_menu_button.png */,
+				F57E1E3014694D25004C4259 /* replay.png */,
+				F57E1E3114694D25004C4259 /* resume_menu_button.png */,
 				F5E4F160136B93DE00B7C78D /* points.png */,
 				F5E4F142136B7CD900B7C78D /* HUDTopBarCloseArrow.png */,
 				F5E4F143136B7CD900B7C78D /* HUDTopBarOpenArrow.png */,
@@ -2979,6 +2988,9 @@
 				F5E4F5C313717DED00B7C78D /* Reverse.mp3 in Resources */,
 				F5E4F5C413717DED00B7C78D /* backGround.mp3 in Resources */,
 				3F32BF311467945300CBA087 /* power6.png in Resources */,
+				F57E1E3214694D25004C4259 /* pause_menu_button.png in Resources */,
+				F57E1E3314694D25004C4259 /* replay.png in Resources */,
+				F57E1E3414694D25004C4259 /* resume_menu_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3252,7 +3264,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chintankumar Jayantilal Patel (3TNQLD85ZK)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
@@ -3266,6 +3278,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33F82AA1-FBFD-4B3D-89EE-0326F7CEE1F8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3276,7 +3289,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chintankumar Jayantilal Patel (3TNQLD85ZK)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
@@ -3285,6 +3298,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33F82AA1-FBFD-4B3D-89EE-0326F7CEE1F8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

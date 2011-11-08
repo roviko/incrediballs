@@ -31,6 +31,7 @@ enum {
 @synthesize topBar;
 @synthesize ballTurnMenu;
 @synthesize ballLeftItem;
+@synthesize isTopBarOpen;
 
 LevelBuilder *curLevel;
 CCMenuItemImage *shootButton;
@@ -40,7 +41,6 @@ CCSprite* HUDcontrol;
 CGPoint menuP;
 CGPoint spriteP;
 int powerSpriteCount;
-BOOL isTopBarOpen;
 CCLayerColor *pauseLayer;
 CCMenu *pauseMenu;
 BOOL isScreenPaused = NO;
@@ -85,7 +85,7 @@ CCMenuItemImage *ballItem[TOTAL_NUMBER_OF_BALLS];
 		HUDcontrol.position = ccp(controlTopBar.contentSize.width/2,controlTopBar.contentSize.height/2);
 		[controlTopBar addChild:HUDcontrol];
 		
-		pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(restartLevel)];
+		pauseButton = [CCMenuItemImage itemFromNormalImage:@"replay.png" selectedImage:@"replay.png" target:self selector:@selector(restartLevel)];
 		pauseButton.position = ccp(wins.width/2 - pauseButton.contentSize.width/2 - 50,-wins.height/2 + controlTopBar.contentSize.height/2);
 		
         actualPauseButton = [CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause.png" target:self selector:@selector(pauseLevel:)];
@@ -222,13 +222,15 @@ CCMenuItemImage *ballItem[TOTAL_NUMBER_OF_BALLS];
     
     // Create a pause layer
     CGSize s = [[CCDirector sharedDirector] winSize];
-    pauseLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 255, 125) width: 300 height: 150];
+    pauseLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 200) width: 460 height: 300];
     pauseLayer.position = ccp(s.width/2, s.height/2);
     pauseLayer.isRelativeAnchorPoint = YES;
     [self addChild: pauseLayer z:20];
     
-    resume = [CCMenuItemImage itemFromNormalImage:@"power2.png" selectedImage:@"rpower2.png" target:self selector:@selector(resumeGame:)];
-    mainMenu = [CCMenuItemImage itemFromNormalImage:@"power1.png" selectedImage:@"power1.png" target:self selector:@selector(goToMainMenu)];
+    //CCLabelTTF *pauseLabel = [CCLabelTTF labelWithString:@"Pause" fontName:@"American Typewriter" fontSize:16];
+    
+    resume = [CCMenuItemImage itemFromNormalImage:@"resume_menu_button.png" selectedImage:@"resume_menu_button.png" target:self selector:@selector(resumeGame:)];
+    mainMenu = [CCMenuItemImage itemFromNormalImage:@"pause_menu_button.png" selectedImage:@"pause_menu_button.png" target:self selector:@selector(goToMainMenu)];
     
     pauseMenu = [CCMenu menuWithItems:resume, mainMenu, nil];
     [pauseMenu alignItemsHorizontally];

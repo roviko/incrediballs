@@ -1186,6 +1186,9 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	CGPoint curLocation = [touch locationInView: [touch view]];
 	curLocation = [[CCDirector sharedDirector] convertToGL:curLocation];
 	
+    // Added a fix so that the cannon power setting is more appropriate
+    curLocation.x += cannon.position.x;
+    
 	// call rotation function to track the current orientation of the cannon
 	[self changeRotationAnimation:curLocation];
 	
@@ -1515,9 +1518,9 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	backBackground.position = ccp(newBackPositionX - iZoomOffSetX,160);
 	
 	// Following code is for moving the Shooting Area
-	float newShootingAreaX = self.position.x;
+	//float newShootingAreaX = self.position.x;
 	
-	ShootingArea.origin.x = newShootingAreaX;
+	//ShootingArea.origin.x = newShootingAreaX;
 }
 
 -(void) addPlatformCollision:(int)startTile endTile:(int)endTile height:(int)iHeight {
