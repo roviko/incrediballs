@@ -61,10 +61,10 @@ if ((self = [super init])) {
 	
 	// The UserInterfaceLayer remains static and relative to the screen area.
 	HUD* uiLayer = [HUD node]; 
-	[self addChild:uiLayer z:2 tag:LayerTagHud];
+	[self addChild:uiLayer z:3 tag:LayerTagHud];
 	
 	SoundLayer* lSoundLayer = [SoundLayer node]; 
-	[self addChild:lSoundLayer z:3 tag:LayerTagSound];
+	[self addChild:lSoundLayer z:4 tag:LayerTagSound];
 	
 	[self addStaticBackground];
 	

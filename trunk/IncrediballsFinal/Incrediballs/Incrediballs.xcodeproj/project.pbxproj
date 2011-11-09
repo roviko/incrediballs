@@ -71,6 +71,8 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		3F32BF311467945300CBA087 /* power6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F32BF301467945300CBA087 /* power6.png */; };
 		3FAF780A146631A10010CC49 /* iAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF7809146631A10010CC49 /* iAdManager.m */; };
+		3FBA074C146AB6ED00AAF878 /* ParticleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA074B146AB6ED00AAF878 /* ParticleLayer.m */; };
+		3FBA0751146ABA0E00AAF878 /* Particle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA0750146ABA0E00AAF878 /* Particle.m */; };
 		504DFC4810AF1557006D82FE /* CLScoreServerPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC4210AF1557006D82FE /* CLScoreServerPost.h */; };
 		504DFC4910AF1557006D82FE /* CLScoreServerPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DFC4310AF1557006D82FE /* CLScoreServerPost.m */; };
 		504DFC4A10AF1557006D82FE /* CLScoreServerRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 504DFC4410AF1557006D82FE /* CLScoreServerRequest.h */; };
@@ -673,6 +675,10 @@
 		3F32BF301467945300CBA087 /* power6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power6.png; sourceTree = "<group>"; };
 		3FAF7808146631A10010CC49 /* iAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdManager.h; sourceTree = "<group>"; };
 		3FAF7809146631A10010CC49 /* iAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdManager.m; sourceTree = "<group>"; };
+		3FBA074A146AB6EC00AAF878 /* ParticleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleLayer.h; sourceTree = "<group>"; };
+		3FBA074B146AB6ED00AAF878 /* ParticleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleLayer.m; sourceTree = "<group>"; };
+		3FBA074F146ABA0E00AAF878 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
+		3FBA0750146ABA0E00AAF878 /* Particle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Particle.m; sourceTree = "<group>"; };
 		504DFC4210AF1557006D82FE /* CLScoreServerPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerPost.h; sourceTree = "<group>"; };
 		504DFC4310AF1557006D82FE /* CLScoreServerPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLScoreServerPost.m; sourceTree = "<group>"; };
 		504DFC4410AF1557006D82FE /* CLScoreServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLScoreServerRequest.h; sourceTree = "<group>"; };
@@ -1276,6 +1282,7 @@
 		1351F511131F6DD300AF2637 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA074E146AB9A200AAF878 /* Particle */,
 				F5EE65141364DC8B0062918E /* Tutorial */,
 				F5B7B2A21359804500BF31A6 /* HighScores */,
 				1388C4F5133EBF2700369A17 /* User */,
@@ -1334,6 +1341,8 @@
 				1342F25F1315A0FC0000BFF5 /* HUD.m */,
 				1342F2601315A0FC0000BFF5 /* MultipleLayer.h */,
 				1342F2611315A0FC0000BFF5 /* MultipleLayer.m */,
+				3FBA074A146AB6EC00AAF878 /* ParticleLayer.h */,
+				3FBA074B146AB6ED00AAF878 /* ParticleLayer.m */,
 			);
 			name = HUDManager;
 			sourceTree = "<group>";
@@ -1488,6 +1497,15 @@
 				3FAF7809146631A10010CC49 /* iAdManager.m */,
 			);
 			name = AdManager;
+			sourceTree = "<group>";
+		};
+		3FBA074E146AB9A200AAF878 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA074F146ABA0E00AAF878 /* Particle.h */,
+				3FBA0750146ABA0E00AAF878 /* Particle.m */,
+			);
+			name = Particle;
 			sourceTree = "<group>";
 		};
 		504DFC4110AF1557006D82FE /* cocoslive */ = {
@@ -3039,6 +3057,8 @@
 				F5E4EE6213683F5700B7C78D /* CreditScene.m in Sources */,
 				F5E4F1C3136CD07100B7C78D /* AchievementScene.m in Sources */,
 				3FAF780A146631A10010CC49 /* iAdManager.m in Sources */,
+				3FBA074C146AB6ED00AAF878 /* ParticleLayer.m in Sources */,
+				3FBA0751146ABA0E00AAF878 /* Particle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
