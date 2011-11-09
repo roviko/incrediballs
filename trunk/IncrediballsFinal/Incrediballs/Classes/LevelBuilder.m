@@ -80,6 +80,7 @@ cpShape *bodyShape;
 CCSprite *angleSelector;
 CGRect ShootingArea;
 int numCollectables;
+int numObstacles;
 int iEndOfMap;
 
 MultipleLayer *parentLayer;
@@ -804,6 +805,26 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 		[self addChild:collectable[i]];
 		
 	}
+    
+    ////////////
+	// get the obstacles
+	////////////
+    
+    CCTMXObjectGroup *obstacleGroup = [theMap objectGroupNamed:@"ogObstacle"];
+    numObstacles = [obstacleGroup.objects count];
+    
+    // save the x and y value for obstacles in array
+    for (int i = 0; i < numObstacles; i++) {
+        
+        NSMutableDictionary *objObstacle = [obstacleGroup objectNamed:[NSString stringWithFormat:@"obstacle%d", i]];
+        int obstacle_X_Pos = [[objObstacle valueForKey:@"x"] intValue]/32;
+        int obstacle_Y_Pos = [[objObstacle valueForKey:@"y"] intValue]/32;
+        
+        NSLog(@"Obs X pos : %d and Y pos : %d", obstacle_X_Pos, obstacle_Y_Pos);
+        
+        // Create collision for each platform
+		[self addPlatformCollision:obstacle_X_Pos endTile:(obstacle_X_Pos+1) height:obstacle_Y_Pos];
+    }
 	
 	////////////
 	// get the object layer group for platform
@@ -1484,7 +1505,7 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	CGPoint curMapLocation = self.position;
 	CGPoint newMapLocation;
 	
-	NSLog(@"CUR MAP LOC: %f , moveDistance : %f",(cannon.position.x), cannon.contentSize.width/2);
+	//NSLog(@"CUR MAP LOC: %f , moveDistance : %f",(cannon.position.x), cannon.contentSize.width/2);
 	
 	if(CGRectContainsPoint(ShootingArea, touchLocation) == NO)
 	{
@@ -1612,22 +1633,20 @@ static int begin(cpArbiter *arb, cpSpace *space, void *unused)
 	float radius = tileSize / 2; // thickness using this radius so effective thickness of the plateform will be 32
 	
 	// here we are setting up a rectangle with curve sides so start and end points will be center of the height
-	
-	shape = cpSegmentShapeNew(staticBody, ccp(startTile * tileSize + radius,iHeight * tileSize + radius), ccp(endTile * tileSize - radius,iHeight * tileSize + radius), radius);
+	NSLog(@"Start pos for obstacle : %d and end pos for obstacle %d", startTile, endTile);
+	shape = cpSegmentShapeNew(staticBody, ccp(startTile * tileSize + radius,iHeight * tileSize + radius), ccp(endTile * tileSize - radius + 1,iHeight * tileSize + radius), radius); // added the value 1 to the end in order to create at least one pixel of line, this was an issue for the obstacles.
 	shape->e = floorElasticity; shape->u = floorFriction;
 	shape->surface_v = ccp(0,0);
 	
 	// setup callback handler for collision
 	if(iHeight<=1)
-	shape->collision_type=20;
+        shape->collision_type=20;
 	else
 		shape->collision_type=2;	
 
 	
-	
+	// Add to space
 	cpSpaceAddStaticShape(space, shape);
-	//check height
-	//NSLog(@"12837829173981273897129371289378912731238127312738127389712398127317Hegiight:%d",iHeight);
 }
 
 

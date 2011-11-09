@@ -43,7 +43,7 @@
   <object name="end6" x="3758" y="272"/>
  </objectgroup>
  <objectgroup name="ogObstacle" width="300" height="10">
-  <object name="obstacle0" x="950" y="241"/>
+  <object name="obstacle0" x="1040" y="241"/>
  </objectgroup>
  <objectgroup name="ogPowerDetail" width="300" height="10">
   <object name="power0" x="0" y="3"/>
