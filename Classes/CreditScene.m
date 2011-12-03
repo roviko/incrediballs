@@ -7,7 +7,6 @@
 //
 
 #import "CreditScene.h"
-#import "OptionScene.h"
 
 @implementation CreditScene
 
@@ -41,29 +40,12 @@
 		
 		[self addChild:commonBG];
 		
-		// Create a back button, always present
-		CCMenuItemImage *backButton = [CCMenuItemImage itemFromNormalImage:@"back_a.png" selectedImage:@"back_b.png"
-																	target:self
-																  selector:@selector(goBack)];
-		backButton.position = ccp(-215,-135);
-		backButton.scale = 0.5;
-		
-		// Menu to go into the level
-		CCMenu *menu = [CCMenu menuWithItems:backButton, nil];
-		
-		[self addChild:menu];
-		
+		[[CCTouchDispatcher sharedDispatcher]addTargetedDelegate:self priority:0 swallowsTouches:YES];
 		
 	}
 	
 	return self;
 }
-
-
--(void) goBack{
-	[[CCDirector sharedDirector] replaceScene:[OptionScene node]];
-}
-
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -74,6 +56,16 @@
 	
 	// don't forget to call "super dealloc"
 	[super dealloc];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    return YES;
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [[CCDirector sharedDirector] popScene];
 }
 
 @end

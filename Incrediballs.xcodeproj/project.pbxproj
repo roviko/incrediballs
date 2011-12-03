@@ -3199,6 +3199,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3215,6 +3216,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Incrediballs;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73F54B34-7551-4121-84AA-6160463DE75E";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -3223,6 +3226,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3237,6 +3241,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Incrediballs;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73F54B34-7551-4121-84AA-6160463DE75E";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;

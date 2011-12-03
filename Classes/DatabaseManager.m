@@ -19,7 +19,7 @@
 @implementation DatabaseManager
 
 
-
+#pragma mark - Initialization
 
 - (id) init
 {
@@ -84,7 +84,7 @@
 	dbPath = writableDBPath;
 }
 
-
+#pragma mark - Ball methods
 
 // Get the ball info
 - (NSMutableDictionary *) getBallDatabase
@@ -142,6 +142,60 @@
 	return balls;
 }
 
+// Get all balls
+-(NSMutableDictionary *) getAllBalls
+{
+	return [self getBallDatabase];
+}
+
+// Get a particular ball
+-(Ball *) getBallWithId:(NSNumber* )pBallID
+{
+	
+	NSMutableDictionary* balls = [self getAllBalls];
+	
+	return (Ball *)[balls objectForKey:pBallID];
+}
+
+// Returns the current value of the highscore or money availabel by the user
+-(int)buyBall:(int) ballId price:(int)ballPrice userScore:(int)score
+{
+	// Local variables
+	int newUserScore = score - ballPrice;
+	
+	// Start transaction
+	[db beginTransaction];
+    
+	NSLog(@"ball iD = %d",ballId);
+	[self createEditableCopyOfDatabaseIfNeeded];
+	// Insert into the buy table
+	NSString *insertBall = [NSString stringWithFormat: @"INSERT INTO USER_BALL_MAP (USER_ID, BALL_ID) VALUES (%d, %d) ",gUserId, ballId ];
+	
+	[db executeUpdate: insertBall];
+	[self createEditableCopyOfDatabaseIfNeeded];
+	NSString *updateUserScore = [NSString stringWithFormat:@"UPDATE USER SET SCORE = %d, UPDATED_DATE = CURRENT_TIMESTAMP WHERE USER_ID = %d",newUserScore, gUserId];
+	
+	// Update the user score/money
+	[db executeUpdate: updateUserScore];
+	
+	NSLog(@"new score = %d",newUserScore);
+	
+	// Commit the chages
+	[db commit];
+	
+	// Get the current user again
+	User *userNow = [self getCurrentUser];
+	
+	NSLog(@"Inside database map Highscore : %d", userNow.userScore);
+	
+	// Return the current score/money
+	return userNow.userScore;
+	
+}
+
+
+#pragma mark - User methods
+
 // Get the user details
 - (NSMutableDictionary *) getUserDatabase
 {
@@ -170,6 +224,62 @@
 	
 	return user;
 }
+
+
+// Get all the users
+-(NSMutableDictionary *) getAllUsers
+{
+	return [self getUserDatabase];
+}
+
+
+-(User *) getCurrentUser
+{
+	NSMutableDictionary* users = [self getAllUsers];
+	User* user;
+	//Get products for every city
+	for (id key in users) {
+		User* forLoopUser = [users objectForKey:key];
+		if (forLoopUser.isCurrentUser) {
+			user = forLoopUser;
+			break;
+		}
+	}
+	return user;
+}
+
+
+
+-(void)setCurrentUser: (int)userId
+{
+	[db beginTransaction];
+	[self createEditableCopyOfDatabaseIfNeeded];
+	NSString *updateUserQuery = [NSString stringWithFormat:@"UPDATE USER SET UPDATED_DATE = CURRENT_TIMESTAMP WHERE USER_ID = %d", userId];
+	[db executeUpdate: updateUserQuery];
+	[db commit];
+}
+
+
+-(void)removeUserFromTable:(int) userId
+{
+	[db beginTransaction];
+	[db executeUpdate:@"DELETE FROM USER WHERE USER_ID = ?",userId];
+	[db commit];
+}
+
+
+// Add a user
+-(void)insertAnotherUser
+{
+	[db beginTransaction];
+	[self createEditableCopyOfDatabaseIfNeeded];
+	NSString *insertUser = [NSString stringWithFormat:@"INSERT INTO USER (NAME, UPDATED_DATE) VALUES ( '%@' ,CURRENT_TIMESTAMP)", gUserName];
+	[db executeUpdate: insertUser];
+	[db commit];
+}
+
+
+#pragma mark - Level methods
 
 // Get the level unlocked by user
 - (NSMutableDictionary *) getLevelDatabase
@@ -219,58 +329,7 @@
 	return levels;
 }
 
--(void) dealloc
-{
-	NSLog(@"Inside dealloc of database manager");
-	[pool release];
-	[super dealloc];
-}
-
-
--(NSMutableDictionary *) getAllBalls
-{
-	return [self getBallDatabase];
-}
-
-
--(NSMutableDictionary *) getAllUsers
-{
-	return [self getUserDatabase];
-}
-
-
--(User *) getCurrentUser
-{
-	NSMutableDictionary* users = [self getAllUsers];
-	User* user;
-	//Get products for every city
-	for (id key in users) {
-		User* forLoopUser = [users objectForKey:key];
-		if (forLoopUser.isCurrentUser) {
-			user = forLoopUser;
-			break;
-		}
-	}
-	return user;
-}
-
--(void)setCurrentUser: (int)userId
-{
-	[db beginTransaction];
-	[self createEditableCopyOfDatabaseIfNeeded];
-	NSString *updateUserQuery = [NSString stringWithFormat:@"UPDATE USER SET UPDATED_DATE = CURRENT_TIMESTAMP WHERE USER_ID = %d", userId];
-	[db executeUpdate: updateUserQuery];
-	[db commit];
-}
-
--(Ball *) getBallWithId:(NSNumber* )pBallID
-{
-	
-	NSMutableDictionary* balls = [self getAllBalls];
-	
-	return (Ball *)[balls objectForKey:pBallID];
-}
-
+// Get level unlocked by a user
 -(NSMutableDictionary *) getUnlockedLevelsByLoggedInUser
 {
 	[self createEditableCopyOfDatabaseIfNeeded];
@@ -302,22 +361,7 @@
 }
 
 
--(void)insertAnotherUser
-{
-	[db beginTransaction];
-	[self createEditableCopyOfDatabaseIfNeeded];
-	NSString *insertUser = [NSString stringWithFormat:@"INSERT INTO USER (NAME, UPDATED_DATE) VALUES ( '%@' ,CURRENT_TIMESTAMP)", gUserName];
-	[db executeUpdate: insertUser];
-	[db commit];
-}
-
--(void)removeUserFromTable:(int) userId
-{
-	[db beginTransaction];
-	[db executeUpdate:@"DELETE FROM USER WHERE USER_ID = ?",userId];
-	[db commit];
-}
-
+// Get a particular level info
 -(World *) getLevelWithId:(NSNumber* )pWorldId
 {
 	
@@ -326,42 +370,8 @@
 	return (World *)[levels objectForKey:pWorldId];
 }
 
-// Returns the current value of the highscore or money availabel by the user
--(int)buyBall:(int) ballId price:(int)ballPrice userScore:(int)score
-{
-	// Local variables
-	int newUserScore = score - ballPrice;
-	
-	// Start transaction
-	[db beginTransaction];
 
-	NSLog(@"ball iD = %d",ballId);
-	[self createEditableCopyOfDatabaseIfNeeded];
-	// Insert into the buy table
-	NSString *insertBall = [NSString stringWithFormat: @"INSERT INTO USER_BALL_MAP (USER_ID, BALL_ID) VALUES (%d, %d) ",gUserId, ballId ];
-	
-	[db executeUpdate: insertBall];
-	[self createEditableCopyOfDatabaseIfNeeded];
-	NSString *updateUserScore = [NSString stringWithFormat:@"UPDATE USER SET SCORE = %d, UPDATED_DATE = CURRENT_TIMESTAMP WHERE USER_ID = %d",newUserScore, gUserId];
-	
-	// Update the user score/money
-	[db executeUpdate: updateUserScore];
-	
-	NSLog(@"new score = %d",newUserScore);
-	
-	// Commit the chages
-	[db commit];
-	
-	// Get the current user again
-	User *userNow = [self getCurrentUser];
-	
-	NSLog(@"Inside database map Highscore : %d", userNow.userScore);
-	
-	// Return the current score/money
-	return userNow.userScore;
-	
-}
-
+// Unlock the next level
 -(void) unlockNextLevel
 {
 	[db beginTransaction];
@@ -370,6 +380,8 @@
 	[db executeUpdate: unlockNewLevel];
 	[db commit];
 }
+
+#pragma mark - Score metohds
 
 -(void) updateUserScore: (int)score
 {
@@ -460,6 +472,8 @@
 	return highScores;
 }
 
+#pragma mark - Tutorial methods
+
 -(NSMutableDictionary *) getAllTutorialInformation
 {
 	NSMutableDictionary* tutorials = [[[NSMutableDictionary alloc] init] autorelease];
@@ -523,6 +537,16 @@
 	[rs close];
 	
 	return tutorials;
+}
+
+
+#pragma mark - Deallocation
+
+-(void) dealloc
+{
+	NSLog(@"Inside dealloc of database manager");
+	[pool release];
+	[super dealloc];
 }
 
 
