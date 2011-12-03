@@ -13,7 +13,8 @@
 #import "CCTouchDispatcher.h"
 #import "TutorialScene.h"
 #import "HighScoreScene.h"
-#import "OptionScene.h"
+//#import "OptionScene.h"
+#import "CreditScene.h"
 #import "SimpleAudioEngine.h"
 #import "CDAudioManager.h"
 #import "Globals.h"
@@ -139,25 +140,25 @@ CCMenuItemLabel *item4Text;
 	
 	
 	
-	CCMenuItemImage *item3 = [CCMenuItemImage itemFromNormalImage:@"menu_3a.png" selectedImage:@"menu_3b.png"
-														   target:self
-														 selector:@selector(highScoreScene:)];
-	item3.position = ccp(menuItemLeft,menuItemTop - 86);
+//	CCMenuItemImage *item3 = [CCMenuItemImage itemFromNormalImage:@"menu_3a.png" selectedImage:@"menu_3b.png"
+//														   target:self
+//														 selector:@selector(highScoreScene:)];
+//	item3.position = ccp(menuItemLeft,menuItemTop - 86);
 	
 	
 	CCMenuItemImage *item4 = [CCMenuItemImage itemFromNormalImage:@"menu_4a.png" selectedImage:@"menu_4b.png"
 														   target:self
 														 selector:@selector(optionScene:)];
-	item4.position = ccp(menuItemLeft,menuItemTop - 129);
+	item4.position = ccp(menuItemLeft,menuItemTop - 86);//ccp(menuItemLeft,menuItemTop - 129);
 	
-	CCMenu *menu = [CCMenu menuWithItems:item1,item2,item3,item4,nil];
+	CCMenu *menu = [CCMenu menuWithItems:item1,item2,item4,nil];
 	
 	[self addChild:menu];
 		
 	[item1 runAction:[CCMoveBy actionWithDuration:1 position:ccp(-210,0)]];
 	[item2 runAction:[CCSequence actions:[CCMoveBy actionWithDuration:0.6f position:ccp(0,0)],[CCMoveBy actionWithDuration:1 position:ccp(-210,0)],nil]];
-	[item3 runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.2f position:ccp(0,0)],[CCMoveBy actionWithDuration:1 position:ccp(-210,0)],nil]];
-	[item4 runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.8f position:ccp(0,0)],[CCMoveBy actionWithDuration:1 position:ccp(-210,0)],nil]];
+	//[item3 runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.2f position:ccp(0,0)],[CCMoveBy actionWithDuration:1 position:ccp(-210,0)],nil]];
+	[item4 runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.2f position:ccp(0,0)],[CCMoveBy actionWithDuration:1 position:ccp(-210,0)],nil]];
 	
 }
 
@@ -324,7 +325,8 @@ CCMenuItemLabel *item4Text;
 }
 
 -(void)optionScene:(id)sender{
-	[[CCDirector sharedDirector] pushScene:[OptionScene node]];
+	//[[CCDirector sharedDirector] pushScene:[OptionScene node]];
+    [[CCDirector sharedDirector] pushScene:[CreditScene node]];
 }
 
 -(void)onEnter
