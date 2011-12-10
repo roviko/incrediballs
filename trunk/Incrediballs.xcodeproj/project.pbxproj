@@ -3199,6 +3199,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3216,7 +3217,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Incrediballs;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73F54B34-7551-4121-84AA-6160463DE75E";
+				PROVISIONING_PROFILE = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -3226,7 +3228,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rohit V Kotian";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rohit V Kotian";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3241,7 +3244,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Incrediballs;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73F54B34-7551-4121-84AA-6160463DE75E";
+				PROVISIONING_PROFILE = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wall";
 			};
@@ -3251,6 +3255,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3261,6 +3267,9 @@
 					libs,
 				);
 				PRODUCT_NAME = "cocos2d libraries";
+				PROVISIONING_PROFILE = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -3268,6 +3277,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rohit V Kotian";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rohit V Kotian";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
@@ -3279,6 +3290,9 @@
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "cocos2d libraries";
+				PROVISIONING_PROFILE = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
+				SKIP_INSTALL = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -3288,6 +3302,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -3302,7 +3317,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "30E797CB-27D9-4867-947E-835EB279F384";
+				PROVISIONING_PROFILE = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48FE85CC-3E35-482D-ABEE-6D1FDB588EC4";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3313,7 +3329,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rohit Kotian (KPLYUR3936)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rohit V Kotian";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rohit V Kotian";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
@@ -3322,7 +3339,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "30E797CB-27D9-4867-947E-835EB279F384";
+				PROVISIONING_PROFILE = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "49826F5F-A974-4FA7-BE4F-91B7743BCB33";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
